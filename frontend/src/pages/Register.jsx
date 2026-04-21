@@ -8,7 +8,7 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("https://devhire-backend-xe8h.onrender.com//api/auth/register", {
         name,
         email,
         password,
