@@ -16,9 +16,9 @@ function Register() {
 
       alert("Registered successfully");
     } catch (err) {
-      console.log(err.response?.data);
-      alert("Registration failed");
-    }
+  console.log(err.response?.data);
+  alert(err.response?.data?.msg || "Registration failed");
+}
   };
 
   return (
