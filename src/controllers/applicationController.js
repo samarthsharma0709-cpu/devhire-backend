@@ -31,3 +31,20 @@ export const getMyApplications = async (req, res) => {
 
   res.json(apps);
 };
+export const getApplicantsForJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.jobId).populate("createdBy");
+
+if (job.createdBy._id.toString() !== req.user.id) {
+  return res.status(403).json({ msg: "Not allowed" });
+}
+
+    const apps = await Application.find({ job: req.params.jobId })
+      .populate("user", "name email");
+
+    res.json(apps);
+
+  } catch (err) {
+    res.status(500).json({ err: err.message });
+  }
+};
