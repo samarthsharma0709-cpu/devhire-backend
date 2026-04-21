@@ -8,7 +8,7 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("https://devhire-backend-xe8h.onrender.com//api/auth/register", {
+      await axios.post("https://devhire-backend-xe8h.onrender.com/api/auth/register", {
         name,
         email,
         password,
@@ -16,8 +16,9 @@ function Register() {
 
       alert("Registered successfully");
     } catch (err) {
-  console.log(err.response?.data);
-  alert(err.response?.data?.msg || "Registration failed");
+  console.log("ERROR:", err);
+  console.log("DATA:", err.response?.data);
+  alert(err.response?.data?.msg || "Failed");
 }
   };
 

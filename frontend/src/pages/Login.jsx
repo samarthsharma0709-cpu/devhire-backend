@@ -7,7 +7,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("https://devhire-backend-xe8h.onrender.com//api/auth/login", {
+      const res = await axios.post("https://devhire-backend-xe8h.onrender.com/api/auth/login", {
         email,
         password,
       });
@@ -15,9 +15,10 @@ function Login() {
       localStorage.setItem("token", res.data.token);
       window.location.reload();
     } catch (err) {
-      console.log(err);
-      alert("Login failed");
-    }
+  console.log("ERROR:", err);
+  console.log("DATA:", err.response?.data);
+  alert(err.response?.data?.msg || "Failed");
+}
   };
 
   return (

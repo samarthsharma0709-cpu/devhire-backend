@@ -12,7 +12,7 @@ function Jobs() {
         const token = localStorage.getItem("token");
 
         // GET JOBS
-        const jobsRes = await axios.get("https://devhire-backend-xe8h.onrender.com//api/jobs", {
+        const jobsRes = await axios.get("https://devhire-backend-xe8h.onrender.com/api/jobs", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -21,7 +21,7 @@ function Jobs() {
 
         // GET MY APPLICATIONS
         const appsRes = await axios.get(
-          "https://devhire-backend-xe8h.onrender.com//api/applications/me",
+          "https://devhire-backend-xe8h.onrender.com/api/applications/me",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ function Jobs() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "https://devhire-backend-xe8h.onrender.com//api/applications",
+        "https://devhire-backend-xe8h.onrender.com/api/applications",
         { jobId },
         {
           headers: {
@@ -70,7 +70,7 @@ function Jobs() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        `https://devhire-backend-xe8h.onrender.com//api/applications/job/${jobId}`,
+        `https://devhire-backend-xe8h.onrender.com/api/applications/job/${jobId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
